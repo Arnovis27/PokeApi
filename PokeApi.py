@@ -1,4 +1,6 @@
 import requests
+import urllib
+from PIL import Image
 
 def get_pokemons(url, pokename):
 
@@ -8,9 +10,11 @@ def get_pokemons(url, pokename):
     if response.status_code == 200:
         response2= requests.get(url2)
         payload2= response2.json()
+        sprites= payload2.get('sprites', [])
         types= payload2.get('types', [])
         abilities= payload2.get('abilities', [])
         stats= payload2.get('stats', [])
+        front_sprite=''
         tipo1=0
         habilidad=0
         stabs=0
@@ -19,6 +23,19 @@ def get_pokemons(url, pokename):
         si= '-Habilidad oculta-'
 
         print("\n\t", pokename.upper())
+
+        if sprites:
+            #Descargando Imagen
+            front_sprite= sprites['front_default']
+            imagen= open("./Sprite/Sprite.png", 'wb')
+            imagen.write(urllib.request.urlopen(front_sprite).read())
+            imagen.close()
+
+            #Abriendo imagen
+            ruta= ("./Sprite/Sprite.png")
+            In= Image.open(ruta)
+            In.show()
+
 
         print("\n***Tipo***")
         if types:
@@ -49,7 +66,7 @@ def get_pokemons(url, pokename):
 
 if __name__ == "__main__":
     url='http://pokeapi.co/api/v2/pokemon/'
-    nombrepokemon=str(input("\nNombre del Pokemon: "))
+    nombrepokemon=str(input("\nPokemon: "))
     pokename= nombrepokemon.lower()
 
     get_pokemons(url,pokename)
