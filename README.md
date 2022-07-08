@@ -1,4 +1,2 @@
 # PokeApi
-usando https://pokeapi.co/
-
-practica para bases de un proyecto personal mas grande :3
+Programa usado para potencializar el consumo de una API, en este caso se uso POKEAPI para identificar los datos de los pokemon tales como su tipo, naturaleza, estadisticas bases, entre otras cosas
