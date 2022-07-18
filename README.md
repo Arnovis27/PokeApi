@@ -6,4 +6,4 @@ Puedes intalarlo clonando el repositorio
 ```$ git clone url ```
 
 ## Como se usa
-desde la consola de comandos CMD debes ejecutar el archivo ```app.py``` para iniciar el programa
+desde la consola de comandos CMD debes ejecutar el archivo [PokeApi.py](./PokeApi.py) para iniciar el programa
